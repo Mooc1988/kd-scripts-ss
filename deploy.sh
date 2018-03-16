@@ -27,6 +27,7 @@ function optimize_ss(){
 
 function config_iptables(){
     if ! [ -f "/etc/iptables/rules.v4"]; then
+        mkdir -p /etc/iptables
         cp /home/kd-scripts-ss/config/rules.v4 /etc/iptables/rules.v4
     fi
     iptables-restore /etc/iptables/rules.v4
