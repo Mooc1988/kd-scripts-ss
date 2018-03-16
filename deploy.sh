@@ -22,11 +22,11 @@ function optimize_ss(){
     cp /home/kd-scripts-ss/config/shadowsocks-libev /etc/default/shadowsocks-libev
     sysctl --system
     adduser --system --disabled-password --disabled-login --no-create-home shadowsocks
-    cp /home/kd-scripts-ss/config/ss/local.conf /etc/sysctl.d/local.conf
+    cp /home/kd-scripts-ss/config/local.conf /etc/sysctl.d/local.conf
 }
 
 function config_iptables(){
-    if [! -f "/etc/iptables/rules.v4"]; then
+    if ! [ -f "/etc/iptables/rules.v4"]; then
         cp /home/kd-scripts-ss/config/rules.v4 /etc/iptables/rules.v4
     fi
     iptables-restore /etc/iptables/rules.v4
