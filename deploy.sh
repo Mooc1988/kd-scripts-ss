@@ -11,7 +11,7 @@ function install_ss(){
     fi
 }
 
-function install_supervisor()
+function install_supervisor(){
     if ! [ -x "$(command -v supervisorctl)" ]; then
         apt update
         apt install supervisor -y
