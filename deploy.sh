@@ -19,7 +19,9 @@ function install_supervisor(){
     if ! [ -x "$(command -v supervisorctl)" ]; then
         apt update
         apt install supervisor -y
-        cp /home/kd-scripts-ss/config/ss.conf /etc/supervisor/conf.d/ss.conf
+    fi
+    if [ ! -f "/etc/supervisor/conf.d/ss.conf" ]; then
+      cp /home/kd-scripts-ss/config/ss.conf /etc/supervisor/conf.d/ss.conf
     fi
 }
 
