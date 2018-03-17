@@ -9,12 +9,17 @@ function install_ss(){
         apt-get update
         apt install shadowsocks-libev -y
     fi
+    if [ ! -d "/etc/shadowsocks-libev" ];then
+      mkdir /etc/shadowsocks-libev
+    fi
+    cp /home/kd-scripts-ss/config/ss-libev/*  /etc/shadowsocks-libev
 }
 
 function install_supervisor(){
     if ! [ -x "$(command -v supervisorctl)" ]; then
         apt update
         apt install supervisor -y
+        cp /home/kd-scripts-ss/config/ss.conf /etc/supervisor/conf.d/ss.conf
     fi
 }
 
